@@ -1,0 +1,45 @@
+# ~/.config/starship.toml
+# Diseño Minimalista Tokyo Night para Mac M2
+
+# Define el orden de los elementos
+format = """
+$directory\
+$git_branch\
+$git_status\
+$line_break\
+$character"""
+
+# No añadir línea nueva al principio
+add_newline = false
+
+[directory]
+# Usamos Cian (#7dcfff) para la ruta, sin fondo. Negrita para que destaque.
+style = "fg:#7dcfff bold"
+format = "[󰉋 ](fg:#bb9af7)[$path]($style)" # Incluye icono de carpeta minimalista
+truncation_length = 3
+truncation_symbol = "…/"
+truncate_to_repo = true # Si estás en un repo, corta la ruta ahí
+
+[git_branch]
+# Usamos Púrpura (#bb9af7) para la rama
+style = "fg:#bb9af7 bold"
+format = "on [ $branch]($style) "
+
+[git_status]
+# Símbolos minimalistas y colores sutiles
+style = "fg:#db4b4b" # Color base rojo suave para alertas
+stashed = '[\[$]](fg:#e0af68)' # Amarillo
+ahead = '[⇡](fg:#73daca)' # Verde agua
+behind = '[⇣](fg:#73daca)' # Verde agua
+diverged = '[󰹹](fg:#db4b4b)' # Rojo
+untracked = '[?](fg:#7aa2f7)' # Azul
+modified = '[!](fg:#e0af68)' # Amarillo
+staged = '[+](fg:#9ece6a)' # Verde
+renamed = '[»](fg:#bb9af7)' # Púrpura
+deleted = '[✘](fg:#db4b4b)' # Rojo
+format = "([$all_status$ahead_behind]($style))"
+
+[character]
+# El símbolo de entrada. Verde si el comando fue OK, Rojo si falló.
+success_symbol = "[❯](bold #9ece6a) "
+error_symbol = "[❯](bold #db4b4b) "

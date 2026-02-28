@@ -1,4 +1,4 @@
-# Dotfiles -- MacBook Air M2 (Apple Silicon)
+# Dotfiles -- MacBook
 
 Repositorio de archivos de configuracion personal, optimizado para **macOS en Apple Silicon (M2)**. El objetivo es mantener un entorno de terminal rapido, reproducible y visualmente pulido, aprovechando la aceleracion por GPU nativa del chip M2.
 
@@ -83,6 +83,7 @@ Los symlinks conectan los archivos del repositorio con las rutas donde el sistem
 ln -sf ~/dotfiles/.wezterm.lua ~/.wezterm.lua
 ln -sf ~/dotfiles/.zshrc ~/.zshrc
 ln -sf ~/dotfiles/.zprofile ~/.zprofile
+mkdir -p ~/.config && ln -sf ~/dotfiles/starship.toml ~/.config/starship.toml
 ```
 
 ### 3. Recargar la configuracion
