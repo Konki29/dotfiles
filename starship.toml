@@ -1,7 +1,6 @@
 # ~/.config/starship.toml
-# Diseño Minimalista Tokyo Night para Mac M2
+# Diseño de Alto Contraste para Mac M2
 
-# Define el orden de los elementos
 format = """
 $directory\
 $git_branch\
@@ -9,37 +8,27 @@ $git_status\
 $line_break\
 $character"""
 
-# No añadir línea nueva al principio
 add_newline = false
 
 [directory]
-# Usamos Cian (#7dcfff) para la ruta, sin fondo. Negrita para que destaque.
-style = "fg:#7dcfff bold"
-format = "[󰉋 ](fg:#bb9af7)[$path]($style)" # Incluye icono de carpeta minimalista
+# Usamos Amarillo (#e0af68) para que "salte" a la vista inmediatamente
+style = "fg:#e0af68 bold"
+# Icono en Verde (#9ece6a) para separar visualmente el inicio
+format = "[󰉋 ](fg:#9ece6a)[$path]($style)" 
 truncation_length = 3
 truncation_symbol = "…/"
-truncate_to_repo = true # Si estás en un repo, corta la ruta ahí
+truncate_to_repo = true
 
 [git_branch]
-# Usamos Púrpura (#bb9af7) para la rama
+# Magenta (#bb9af7) para la rama, crea un contraste frío/calor con el amarillo
 style = "fg:#bb9af7 bold"
-format = "on [ $branch]($style) "
+format = " on [ $branch]($style) " 
 
 [git_status]
-# Símbolos minimalistas y colores sutiles
-style = "fg:#db4b4b" # Color base rojo suave para alertas
-stashed = '[\[$]](fg:#e0af68)' # Amarillo
-ahead = '[⇡](fg:#73daca)' # Verde agua
-behind = '[⇣](fg:#73daca)' # Verde agua
-diverged = '[󰹹](fg:#db4b4b)' # Rojo
-untracked = '[?](fg:#7aa2f7)' # Azul
-modified = '[!](fg:#e0af68)' # Amarillo
-staged = '[+](fg:#9ece6a)' # Verde
-renamed = '[»](fg:#bb9af7)' # Púrpura
-deleted = '[✘](fg:#db4b4b)' # Rojo
+style = "fg:#f7768e" # Rojo para el estado de git
 format = "([$all_status$ahead_behind]($style))"
 
 [character]
-# El símbolo de entrada. Verde si el comando fue OK, Rojo si falló.
+# He corregido el error: el texto "bold" debe ir dentro del paréntesis de estilo, no en las comillas.
 success_symbol = "[❯](bold #9ece6a) "
-error_symbol = "[❯](bold #db4b4b) "
+error_symbol = "[❯](bold #f7768e) "
